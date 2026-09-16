@@ -1,0 +1,32 @@
+\documentclass{amsart}
+\usepackage{amsmath,amsthm,amssymb}
+
+\title{Homework 1: Chapter 1}
+\author{Antony Perez}
+\date{\today}
+\begin{document}
+\maketitle
+\subsection*{Problems}
+\subsection*{1} A busy airport sees 1500 takeoffs per day. Prove that there are two planes that must take off within a minute of eachother.
+\begin{proof}
+    There are 1440 minutes within a day. Let $n = 1500$ and $k = 1440$. If we distribute $k$ planes into $k$ minutes, then we will have 60 planes leftover $(1500-1440 = 60)$.  By the Pigeonhole Principle, we can conclude that there will be atleast two planes taking off within the same minute. 
+\end{proof}
+\subsection*{2} Find all triples of positive integers $a<b<c$ for which 
+\[\frac{1}{a} + \frac{1}{b}+ \frac{1}{c}=1\]
+holds. 
+\begin{proof}
+    $a,b,c \in \mathbb{N}$. $1<a < b <c \implies \frac{1}{a} > \frac{1}{b} > \frac{1}{c}$. $\frac{1}{a} + \frac{1}{b}+ \frac{1}{c} =1 \implies ab + ac + bc = abc \implies 3bc \geq abc \implies 3 \geq a$. Let $a = 2:$ $\frac{1}{2} + \frac{1}{b} + \frac{1}{c} = 1 \implies \frac{1}{b} + \frac{1}{c} = \frac{1}{2} \implies \frac{2}{b} \geq \frac{1}{2} \rightarrow 4 \geq b$. Let $b = 3$: $\frac{1}{2}+\frac{1}{3} + \frac{1}{c} = 1 \implies c =6$. Therefore, $a=2, b= 3, c = 6$. 
+\end{proof}
+\subsection*{6} The set $M$ consists of nine positive integers, none of which has a prime divisor larger than six. Prove that $M$ has two elements whose product is the square of an integer. 
+\begin{proof}
+    We will use the Pigeonhole Principle to prove this. Let $M = \{2^x \cdot 3^y \cdot 5^z : x,y,z \in \mathbb{N} \text{ (0 included)}\}$. We must show that, no mater what, $x,y,z$ will become even when multiplied with another element in $M$. We can do this through permutations; the following are the possibilities of $x,y,z$ being even or odd, denoted by an $e$ or $o$: $(o,o,o), (o,e,o), (o,o,e), (e,o,o), (e,e,e), (e,e,o), (o,e,e), (e,o,e)$. Using Pigeonhole Principle, $9 > 8$. Therefore, by Pigeonhole Principle, there are two integers whose product make a perfect square. 
+\end{proof}
+\subsection*{10} Prove that among 502 positive integers, there are always two integers so that either their sum or their difference is divisible by 1000. 
+\begin{proof}
+    The list of integers that are divisible by 1000 are $\{0,1,\ldots,999\}$. The list of numbers when added together become divisible by 1000 are as follows: $(0), (1,999), \ldots, (500)$. This would give us 501 total combinations that are divisible by 1000. We have 502 positive integers. Therefore, we truly only have 500 options to choose from, since 0 isn't positive nor negative. But, by Pigeonhole principle, we see that $502 > 500$, Thus, by Pigeonhole Principle, there is atleast one integer that can belong to a combination/pair that we've created. 
+\end{proof}
+\subsection*{General Form} Claim: Let $n,m$ and $r$ be positive integers so that $n > rm$. Let us distribute $n$ identical balls into $m$ identical boxes. Then, there will be at least one box into which we place at least $r+1$ balls. 
+\begin{proof}
+    Let's assume the contrary is true, and say that there isn't one box that has $r+1$ balls. But this contradicts our objective of distributing $n$ balls. Therefore there must be at least one box containing $r+1$ boxes. 
+\end{proof}
+\end{document}

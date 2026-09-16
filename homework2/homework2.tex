@@ -1,0 +1,115 @@
+\documentclass{amsart}
+\usepackage{amsthm,amssymb,amsmath}
+\title{Homework 2}
+\author{Antony Perez}
+
+\begin{document}
+\maketitle
+\subsection*{1} Let $p(k)$ be a polynomial of degree $d$. Prove that $q(n) = \sum_{k=1}^{n} p(k)$ is a polynomial of degree $d +1$. Prove that this polynomial $q$ satisfies $q(0)=0$.
+\begin{proof}
+   Let $p(k) = \alpha_dk^d + \alpha_{d-1}k^{d-1}+\ldots+\alpha_0$. Performing induction, where $d = 0$, we let $p(k)$ be some constant $c$, and thus $q(n)= cn$. Assume that for every degree
+$j$ with $0 \le j < d$, and every polynomial $r(k)$ of degree $j$, the sum
+$\sum_{k=1}^{n} r(k)$ is a polynomial in $n$ of degree $j+1$, vanishing at
+$n=0$.Write
+\[
+p(k) = a_d k^d + r(k), \qquad \deg r \le d-1.
+\]
+Then
+\[
+q(n) = a_d \underbrace{\left(1^d + 2^d + \cdots + n^d\right)}_{S_d(n)}
+       \;+\; \underbrace{\sum_{k=1}^{n} r(k)}_{q_r(n)}.
+\]
+By the induction hypothesis, $q_r(n)$ is a
+polynomial in $n$ of degree $\le d$ with $q_r(0) = 0$. It remains to
+analyze $S_d(n)$.
+ 
+\medskip
+\noindent Using factorization, we get
+\[
+k^{d+1} - (k-1)^{d+1}
+= k^d + k^{d-1}(k-1) + k^{d-2}(k-1)^2 + \cdots + (k-1)^d.
+\]
+The right-hand side, as a polynomial in $k$, equals
+$(d+1)k^d + (\text{terms of degree} \le d-1)$.
+Summing over
+$k = 1, \dots, n$, the left side telescopes:
+\[
+\sum_{k=1}^{n} \left[k^{d+1} - (k-1)^{d+1}\right] = n^{d+1} - 0^{d+1} = n^{d+1}.
+\]
+The right side sums to
+\[
+(d+1) S_d(n) + \sum_{k=1}^{n} \big(\text{degree} \le d-1 \text{ terms}\big).
+\]
+The last sum, call it $g(n)$, is a
+polynomial in $n$ of degree $\le d$. Hence
+\[
+n^{d+1} = (d+1) S_d(n) + g(n)
+\quad\Longrightarrow\quad
+S_d(n) = \frac{n^{d+1} - g(n)}{d+1}.
+\]
+Since $\deg g \le d < d+1$, the numerator has degree exactly $d+1$, so
+\[
+S_d(n) \text{ is a polynomial in } n \text{ of degree } d+1.
+\]
+ 
+\medskip
+\noindent We now have
+\[
+q(n) = a_d S_d(n) + q_r(n),
+\]
+where $a_d S_d(n)$ has degree exactly $d+1$ and $q_r(n)$ has degree $\le d$. A polynomial
+of degree $d+1$ plus one of degree $\le d$ has degree exactly $d+1$.
+Therefore $q(n)$ is a polynomial in $n$ of degree $d+1$.
+
+ 
+\medskip
+$q(0) =
+\sum_{k=1}^{0} p(k)$ is an empty sum, hence equal to $0$ by definition.
+\end{proof}
+\subsection*{6} Let $a_0=1$, and let $a_{n+1} = 4a_n -1,$ for all non-negative integers $n$. Prove that $a_n = \frac{2 \cdot 4^n+1}{3}$ 
+\begin{proof}
+      We will use induction. Let $p(n)$ be the statement. The base case is proven by the given information: $a_0 = \frac{2\cdot 4^0+1}{3} = 1$. Therefore, assume that $p(n)$ is true, and deduce that $p(n+1)$ is true. Using the recurrence and substituting the induction hypothesis, we see that
+    \[
+    a_{n+1} = 4a_n - 1 = 4\left(\frac{2\cdot 4^n+1}{3}\right)-1 = \frac{8\cdot 4^n+4}{3}-1 = \frac{8\cdot 4^n+1}{3} = \frac{2\cdot 4^{n+1}+1}{3}.
+    \]
+    This is exactly $p(n+1)$, thus concluding the proof.
+\end{proof}
+\subsection*{7} Let $a_0=1$, and let $a_{n+1} = 2 \sum_{i=0}^{n}a_i$ for all non-negative integers $n$. Find an explicit formula for $a_n$.
+\begin{proof}
+     We will use $a_{n+1}$ to find a pattern within the sequence. The sequence from $a_0$ to $a_4$: $\{1, 2, 6, 18 , 54 \}$. From this, I've deduced that $a_n = 2 \cdot 3^{n-1}$ for $n \geq 1$.
+ 
+    To prove this by strong induction, first notice that for $n\geq 1$,
+    \[
+    a_{n+1}-a_n = 2\sum_{i=0}^{n}a_i - 2\sum_{i=0}^{n-1}a_i = 2a_n,
+    \]
+    so $a_{n+1} = 3a_n$ for all $n \geq 0$. Now assume $a_n = 2\cdot 3^{n-1}$ for some $n\geq 1$. Then by the recurrence relation and the induction hypothesis,
+    \[
+    a_{n+1} = 3a_n = 3(2\cdot 3^{n-1}) = 2\cdot 3^n,
+    \]
+    which matches the formula at $n+1$. The base case $n=1$ holds since $a_1 = 2a_0 = 2 = 2\cdot 3^0$.
+\end{proof}
+\subsection*{9} Prove that for all natural numbers $n$, the number $a(n) = n^3 + 11n$ is divisible by 6.
+\begin{proof}
+    Use induction. Let $p(n) = n^3 + 11n$. The base case is true: $p(1) = 12$. Now assume $p(n)$ is divisible by 6, and deduce $p(n+1)$ is divisible by 6. We compute the difference:
+    \[
+    p(n+1) - p(n) = \left[(n+1)^3+11(n+1)\right] - \left[n^3+11n\right] = 3n^2+3n+12 = 3n(n+1)+12.
+    \]
+    We must show that $3n(n+1)+12$ is divisible by 6. Since $n(n+1)$ is a product of two consecutive integers, it is always even, so $3n(n+1)$ is divisible by 6, and $12$ is divisible by 6. Hence $p(n+1)-p(n)$ is divisible by 6.
+ 
+    Since $p(n)$ is divisible by 6 by the induction hypothesis, and $p(n+1)-p(n)$ is divisible by 6, it follows that
+    \[
+    p(n+1) = p(n) + \left[p(n+1)-p(n)\right]
+    \]
+    is also divisible by 6. Therefore, by induction, we have shown that $p(n)$ is divisible by 6 for all natural numbers $n$.
+\end{proof}
+\subsection*{12} We cut a square into four smaller squares, then we cut some of the obtained small squares into four smaller squares, and so on. Prove that at any given point of time during this operation, the number of all squares we have is of the form $3m+1$.
+\begin{proof}
+     Let's use induction, but on the number of cuts performed rather than directly on $m$. Let $t$ be the number of cuts performed so far, and let $N(t)$ be the number of squares after $t$ cuts. The base case $t=0$ is obviously true: before any cuts we have a single square, so $N(0) = 1 = 3(0)+1$.
+ 
+    Now assume $N(t) = 3t+1$ is true, and deduce $N(t+1)$. Each cut takes one existing square and replaces it with four smaller squares, so it removes 1 square and adds 4, a net gain of 3 squares. Therefore,
+    \[
+    N(t+1) = N(t) + 3 = (3t+1)+3 = 3(t+1)+1,
+    \]
+    which is of the same form $3m+1$. Therefore, by induction, at any point in time during this operation the number of squares $N(t) = 3t+1$ is of the form $3m+1$.
+\end{proof}
+\end{document}
