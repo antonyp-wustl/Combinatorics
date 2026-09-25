@@ -1,0 +1,38 @@
+\documentclass{amsart}
+\usepackage{amsthm,amssymb,amsmath, mathtools}
+\title{Homework 3}
+\author{Antony Perez}
+\begin{document}
+\maketitle
+\subsection*{1} How many functions are there from $[n]$ to $[n]$ that are not one-to-one?
+\begin{proof}
+    There would be no functions that are not one-to-one. Since both $[n]$ have the same cardinality, a functtion $f$ can be constructed such that $f: [n] \to [n]$ is a bijection. This is due to every $i-th$ element in $[n]$ pairing with the same $i-th$ element in $[n]$. If the elements within both $[n]$ differ, then simply pair according to their positions.
+\end{proof}
+\subsection*{2} Prove that the number of subsets of $[n]$ that have an odd number of elements is $2^{n-1}$.
+\begin{proof}
+   
+\end{proof}
+\subsection*{8} How many ways are there to list the digits $\{1,2,2,3,4,5,6\}$ so that identical digits are not in consecutive positions?
+\begin{proof}
+    First we must see how many distinct objects can be arranged. We see this by $5! = 120$. We see that there are 6 gaps in between each integer: $\{1,3,4,5,6\}$. Thus $n=6$, and we choose 2. So, $120 \times \binom{6}{2} = 1800$.
+\end{proof}
+\subsection*{10} A cashier wants to work five days a week, but he wants to have at least one of Saturday and Sunday off. In how many ways can he choose the days he will work?
+\begin{proof}
+    Define the alphabet $\{SA, M , T, W , R , F, SU\}$. We can construct two sets $\{SA, M, T , W, R, F\}$ and $\{SU, M,T,W,R,F\}$. Since all items are distinct and we're choosing 5, $\binom{6}{5}.$ Since in both sets we have the set where we work on all business days, we substract one. Thus, the answer is $2\binom{6}{5}-1$.
+\end{proof}
+\subsection*{12} A traveling agent has to visit four cities, each of them five times. In how many different ways can he do this if he is not allowed to start and finish in the same city?
+\subsection*{15}A student in physics needs to spend five days in a laboratory during her last semester of studies. After each day in the lab, she needs to spend at least six days in her office to analyze the data before she can return to the lab. After the last day in the lab, she needs ten days to complete her report that is due at the end of the last day of the semester. In how many ways can she do this if we assume that the semester is 105 days long?
+\subsection*{23}
+In how many different ways can we place 8 identical rooks on a chess board so that no two of them attack each other?
+\subsection*{3} Prove that for all integers $n \geq 2$, 
+\[2^{n-2}\cdot n \cdot (n-1) = \sum_{k=2}^{n}k(k-1)\binom{n}{k}\].
+How can we generate this identity?
+\subsection*{5} Prove that for integers $0 \leq k \leq n-1,$
+\[\sum_{j=0}^{k} \binom{n}{j} = \sum_{j=0}^{k} \binom{n-1-j}{k-j}\]
+\subsection*{8} Prove that for positive integers $n$, the inequality $\binom{2n}{n} < 4^n$ holds.
+\subsection*{20} Prove that if $k$ and $n$ are positive integers, and $k \leq n-1$, then we have 
+\[\binom{n}{k-1} \binom{n}{k+1} \leq \binom{n}{k} \binom{n}{k}.\]
+We note that the sequence $a_0,a_1,a_2,\ldots, a_n$ of positive real numbers is called log-concave if for $1 \leq i \leq n-1$, the inequality $a_{i-1}a(i+1) \leq a_i^2$/ So the exercise asks us to prove that the sequence $\binom{n}{0}, \binom{n}{1},\ldots, \binom{n}{n}$ is log-concave.
+\subsection*{23} Let $C_n$ be the number of northeastern lattice paths from $(0,1)$ to $(n,n)$ that never go above the diagonal $x=y$. Prove that $C_n = \binom{2n}{n} - \binom{2n}{n-1} = \binom{2n}{n}/(n+1)$.
+
+\end{document}
